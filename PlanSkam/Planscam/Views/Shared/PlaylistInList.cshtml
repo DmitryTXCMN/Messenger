@@ -1,0 +1,8 @@
+@using Planscam.Extensions
+@model Planscam.Entities.Playlist
+
+<div>
+    @Html.DrawSmallPlaylistPic(Model.Picture)
+    @Html.DisplayForModel()
+    @Html.ActionLink("Open", "Index", "Playlists", new {Model.Id})
+</div>

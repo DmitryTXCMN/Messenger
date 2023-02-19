@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="/css/layout.css" rel="stylesheet">
+    <link href="/css/player.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+       
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="body">
+        <div class="layoutgrid">
+            <div class="menu">
+                <div class="logo">
+                    <img style="border-radius: 50%;" src="/img/logo.png" alt="logo" width="35px" height="35px">
+                    <span class="logospan color2 textglow2">PLANSCAM</span>
+                </div>
+                <div class="line glowing2 bcolor2" style="margin-bottom: 15px;">⠀</div>
+                <a class="menuElement" href="google.com">
+                    <i class="fi fi-rr-home"></i>
+                    Home
+                </a>
+                <a class="menuElement" href="google.com">
+                    <i class="fi fi-rr-search"></i>
+                    Search
+                </a>
+                <a class="menuElement" href="google.com">
+                    <i class="fi fi-rr-indent"></i>
+                    My libary
+                </a>
+                <div class="line glowing2 bcolor2" style="margin: 15px 0;">⠀</div>
+                <a class="menuElement" href="google.com">
+                    <i class="fi fi-rr-plus"></i>
+                    Create Playlist
+                </a>
+                <a class="menuElement" href="google.com">
+                    <i class="fi fi-rr-grin-hearts"></i>
+                    Favorite
+                </a>
+                <div class="line glowing2 bcolor1" style="margin: 15px 0;">⠀</div>
+                <span class="headline">
+                    Your Playlists
+                </span>
+                <div class="menuPlaylistsContainer">
+                    <div class="menuPlaylists">
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                        <a class="menuPlaylistElement" href="google.com">
+                            <img class="menuPlaylistImg"
+                                src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                                alt="playlist logo">
+                            6ix9ine
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pageContainer">
+
+            </div>
+        </div>
+        <div class="playerContainer">
+            <div class="player">
+                <audio id ="audio" src="/temp/music1.mp3"></audio>
+                <div class="controls">
+                    <i class="prev button fi fi-rr-rewind"></i>
+                    <i onclick="play()" id="play" class="button fi fi-rr-pause"></i>
+                    <i onclick="testFunc()" class="next button fi fi-rr-forward"></i>
+                    <i class="playlist button fi fi-rr-List"></i>
+                </div>
+                <div class="trackInfo">
+                    <img class="trackLogo"
+                        src="https://lastfm.freetls.fastly.net/i/u/300x300/c6ea5209d93e404433ac90ea875ae867.jpg"
+                        alt="playlist logo">
+                    <div class="trackSpans">
+                        <span id="artist" class="Artist" style="font-weight: 700; font-size: 20px;">
+                            Travis Scottina
+                        </span>
+                        <span class="trackName" style="font-weight: 200; font-size: 16px;">
+                            Typoe Jivotnoe
+                        </span>
+                    </div>
+                </div>
+                <div id="progeressContainer" class="progressContainer">
+                    <div class="progressBackground">
+                        <div id="progress" class="progress glow3" style="width: 0;">
+                        </div>
+                    </div>
+                </div>
+                <div class="rightButtons">
+                    <i class="like button fi fi-rr-Heart"></i>
+                    <i class="add button fi fi-rr-Plus"></i>
+                    <i class="ban button fi fi-rr-Ban"></i>
+                    <i class="volume button fi fi-rr-Volume"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/jsFiles/player.js"></script>
+</html>

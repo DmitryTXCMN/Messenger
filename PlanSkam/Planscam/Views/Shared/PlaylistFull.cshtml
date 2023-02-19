@@ -1,0 +1,36 @@
+@using Planscam.Extensions
+@model Planscam.Entities.Playlist
+
+@Html.DisplayForModel()
+
+@Html.DrawHugePlaylistPic(Model.Picture)
+
+@foreach (var track in Model.Tracks!)
+{
+    @await Html.PartialAsync("TrackInList", new TrackViewModel
+    {Picture = track.Picture, Name = track.Name, Id = track.Id, IsLiked = track.IsLiked, PlaylistId = Model.Id})
+}
+
+@if (Model.IsLiked is { })
+{
+    @using (Model.IsLiked!.Value
+        ? Html.BeginForm("UnlikePlaylist", "Playlists", FormMethod.Post)
+        : Html.BeginForm("LikePlaylist", "Playlists", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenForReturnUrl(Context)
+        <input type="submit" value="@(Model.IsLiked.Value ? "---" : "+++")"/>
+    }
+}
+
+@if (Model.IsOwned is true)
+{
+    @using (Html.BeginForm("Delete", "Playlists", FormMethod.Get))
+    {
+        @Html.HiddenFor(model => model.Id)
+        // ReSharper disable once ConvertToConstant.Local
+        var returnUrl = "Playlists/Liked";
+        @Html.HiddenFor(_ => returnUrl)
+        <input type="submit" value="Delete"/>
+    }
+}

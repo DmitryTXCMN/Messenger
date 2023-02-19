@@ -1,0 +1,41 @@
+﻿@{
+    var authenticated = User.Identity?.IsAuthenticated ?? false;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="~/css/layout.css" rel="stylesheet">
+    <link href="~/css/form.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="formBody">
+        <div class="menu" style="padding: 40px 0;">
+            <a class="logo" asp-controller="Home" asp-action="Index">
+                <img style="border-radius: 50%;" src="~/img/logo.png" alt="logo" width="35px" height="35px">
+                <span class="logospan color2 textglow2">PLANSCAM</span>
+            </a>
+            <div class="line glowing2 bcolor2" style="margin-bottom: 15px;">⠀</div>
+                @RenderBody()
+        </div>
+    </div>
+</body>
+<script src="~/jsFiles/player.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+<script src="~/jsFiles/auth.js"></script>
+
+</html>

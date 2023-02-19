@@ -1,0 +1,19 @@
+@using Planscam.Extensions
+@model DeleteTrackViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>You sure?</h2>
+
+@Html.DrawSmallTrackPic(Model.Track.Picture)
+@Html.DisplayFor(model => model.Track)
+
+@using (Html.BeginForm("DeleteTrackSure", "Studio", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <input type="hidden" name="id" value="@Model.Track.Id"/>
+    <input type="submit" value="Delete"/>
+}

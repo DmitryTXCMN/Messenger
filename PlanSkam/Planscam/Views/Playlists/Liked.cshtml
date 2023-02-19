@@ -1,0 +1,12 @@
+@model Planscam.Entities.User
+
+@{
+    ViewBag.Title = "My playlists";
+    Layout = "_Layout";
+}
+
+@Html.DisplayForModel()
+@foreach (var playlist in Model.Playlists!)
+{
+    @await Html.PartialAsync("PlaylistInList", playlist)
+}

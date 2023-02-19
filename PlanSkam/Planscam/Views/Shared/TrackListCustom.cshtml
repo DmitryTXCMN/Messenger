@@ -1,0 +1,40 @@
+@using Planscam.Extensions
+@using System.Text
+@model List<Planscam.Entities.Track>
+
+@{
+    Layout = "";
+}
+
+@{ var ids = Model.Skip(1)
+       .Aggregate(new StringBuilder(Model.FirstOrDefault()?.Id.ToString() ?? string.Empty), 
+           (builder, track) => builder.Append($",{track.Id}"))
+       .ToString(); }
+
+<div class="trackList">
+    @foreach (var track in Model)
+    {
+        <div id="track@(track.Id)" class="track">
+            <div class="trackInfo" onclick="loadPage('@($"/Tracks/Index/{track.Id}')")" style="cursor: pointer;">
+                @Html.DrawSmallPlaylistPic(@track.Picture, "trackListImage")
+                <div class="trackSpans">
+                    <span style="font-weight: 600; font-size: 18px;">@track.Author.Name</span>
+                    <span style="font-weight: 300; font-size: 15px;">@track.Name</span>
+                </div>
+            </div>
+            @if (track.IsLiked == true)
+            {
+                <i onclick="addTrackToFavourite('@track.Id')" id="trackFavBtn@(track.Id)"
+                   class="trackListButton fi fi-sr-heart">
+                </i>
+            }
+            else
+            {
+                <i onclick="addTrackToFavourite('@track.Id')" id="trackFavBtn@(track.Id)"
+                   class="trackListButton fi fi-rr-heart">
+                </i>
+            }
+            <i onclick="playTrackFromCustomPlaylist('@ids',@track.Id)" class="trackListButton fi fi-rr-play"></i>
+        </div>
+    }
+</div>

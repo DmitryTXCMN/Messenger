@@ -1,0 +1,18 @@
+﻿@using Planscam.Extensions
+@model Planscam.Entities.Playlist
+
+@{
+    Layout = "";
+}
+
+
+<div class="playlistContainer">
+<div class="playlistInfoContainer">
+@Html.DrawHugePlaylistPic(@Model.Picture, "playlistImage")
+<span class="playlistName">@Model.Name</span>
+    </div>
+    <div class="lineVertical glowing1 bcolor1">⠀</div>
+    <div class="trackListContainer">
+        @await Html.PartialAsync("TrackListCustom", Model.Tracks)
+    </div>
+</div>

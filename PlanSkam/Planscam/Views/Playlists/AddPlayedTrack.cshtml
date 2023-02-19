@@ -1,0 +1,34 @@
+@using Planscam.Extensions
+@model List<AddPlayedTrackPlaylistViewModel>
+
+@{
+    Layout = "";
+}
+
+Add to playlist:
+
+<div class="addPlaylistsContainer">
+    <div class="addPlaylists">
+        @foreach (var playlist in Model)
+        {
+            <div class="addPlaylistElement">
+                @Html.DrawSmallPlaylistPic(playlist.Picture, "addPlaylistImg")
+                <span onclick="loadPage('@($"Playlists/Index/{playlist.Id}')")" style="cursor: pointer;">@playlist.Name</span>
+
+                @if (!playlist.IsTrackInPlaylist)
+                {
+                    <i id="addButton@(playlist.Id)" inPlaylist="false" onclick="addToPlaylist(@playlist.Id)" class="buttonPlaylist fi fi-rr-plus"></i>
+                }
+                else
+                {
+                    <i id="addButton@(playlist.Id)" inPlaylist="true" onclick="addToPlaylist(@playlist.Id)" class="buttonPlaylist fi fi-rr-check"></i>
+                }
+            </div>
+        }
+    </div>
+</div>
+<a class="addBtnLink" onclick="{
+    var winForm = window.open(`${window.location.origin}/Playlists/Create`,'','scrollbars=1');
+    winForm.resizeTo(500,450);
+    winForm.onbeforeunload = window.updateLayoutPlaylists;
+}">Create new playlist</a>

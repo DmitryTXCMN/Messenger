@@ -1,0 +1,19 @@
+@using Planscam.Extensions
+@using Planscam.FsServices
+@model List<Planscam.Entities.Playlist>
+@{
+    Layout = "";
+}
+
+<div id="layoutPlaylists" class="menuPlaylists">
+    @foreach (var playlist in Model)
+    {
+        <div class="menuPlaylistElementContainer">
+            <div class="menuPlaylistElement" onclick="loadPage('@($"Playlists/Index/{playlist.Id}')")">
+                @Html.DrawSmallPlaylistPic(playlist.Picture, "menuPlaylistImg")
+                @playlist.Name
+            </div>
+            <i onclick="playPlaylist(@playlist.Id)" style="font-size: 20px;" class="button fi fi-rr-play"></i>
+        </div>
+    }
+</div>

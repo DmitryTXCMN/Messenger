@@ -1,0 +1,18 @@
+@using Planscam.Extensions
+@model List<Planscam.Entities.Author>
+
+@{
+    Layout = "";
+}
+
+<div class="playlistList">
+    @foreach (var author in Model)
+    {
+        <div class="playlist">
+            <div class="playlistInfo" onclick="loadPage('@($"Authors/Index/{author.Id}')")" style="cursor: pointer;">
+                @Html.DrawSmallPlaylistPic(author.Picture, "playlistListImage")
+                <span style="font-weight: 600; font-size: 18px;">@author.Name</span>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Planscam.Extensions
+@model Planscam.Entities.Playlist
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "";
+}
+<div class="playlistContainer">
+    <div class="playlistInfoContainer">
+        @Html.DrawHugePlaylistPic(@Model.Picture, "playlistImage")
+        <span class="playlistName">@Model.Name</span>
+        <div class="playlistMenuLinks">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                @if (Model.IsLiked == true)
+                {
+                    <i onclick="likePlaylist(@Model.Id)" id="likePlaylistBtn" class="link fi fi-rr-check">In favorites</i>
+                }
+                else
+                {
+                    <i onclick="likePlaylist(@Model.Id)" id="likePlaylistBtn" class="link fi fi-rr-plus">Add</i>
+                }
+                @if (Model.IsOwned == true)
+                {
+                    <i class="link fi fi-rr-trash" onclick="{
+    var winForm = window.open(`${window.location.origin}/Playlists/Delete/@(Model.Id)`,'','scrollbars=1');
+    winForm.resizeTo(500,450);
+}">Delete</i>
+                }
+            }
+        </div>
+    </div>
+    <div class="lineVertical glowing1 bcolor1">⠀</div>
+    <div class="trackListContainer">
+        @await Html.PartialAsync("TrackList", Model)
+    </div>
+</div>

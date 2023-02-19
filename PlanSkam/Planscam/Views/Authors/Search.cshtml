@@ -1,0 +1,37 @@
+@using Planscam.Extensions
+@model Planscam.Models.AuthorsSearchViewModel
+
+@{
+    ViewBag.Title = "Authors search";
+    Layout = "_Layout";
+}
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+    @Html.EditorFor(model => model.Query)
+    <input type="submit" value="Search"/>
+}
+
+@if (Model is { Result: { } })
+{
+    @foreach (var author in Model.Result)
+    {
+        <a asp-action="Index" asp-route-id="@author.Id">
+            @Html.DrawSmallAuthorPic(author.Picture)
+            @Html.DisplayFor(_ => author.Name)
+        </a>
+    }
+
+    @using (Html.BeginForm(FormMethod.Get))
+    {
+        @Html.HiddenFor(model => model.Query)
+        @if (Model.Page != 1)
+        {
+            <input type="submit" name="page" value="@(Model.Page - 1)"/>
+        }
+        @if (Model.Result.Any())
+        {
+            <input type="submit" name="page" value="@(Model.Page + 1)"/>
+        }
+    }
+}

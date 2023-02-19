@@ -1,0 +1,27 @@
+@using Planscam.Extensions
+@model Planscam.Entities.Author
+
+@{
+    ViewBag.Title = "title";
+    Layout = "";
+}
+
+<div class="studioContainer">
+    <div class="authorInfoContainer">
+        @Html.DrawUserAvatar(Model.Picture,"authorImg")
+        @Model.Name
+    </div>
+    <div class="line glowing2 bcolor1" style="align-self: center">⠀</div>
+    <div class="studioSpanAndLink">
+        Tracks
+        <span class="studioBtn" onclick="{
+    var winForm = window.open(`${window.location.origin}/Studio/LoadNewTrack`,'','scrollbars=1');
+    winForm.resizeTo(500,450);
+}">
+            Load Track
+        </span>
+    </div>
+    <div id="studioTracklistContainer" class="trackListContainer">
+        @await Html.PartialAsync("TrackListCustom", Model.Tracks)
+    </div>
+</div>

@@ -1,0 +1,322 @@
+.playlistContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr 1px 1fr;
+}
+
+.playlistInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.playlistImage {
+    height: 500px !important;
+    width: 500px !important;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    animation: shadow 10s infinite ease-in-out;
+}
+
+.playlistName {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: 10px 5px 40px -25px var(--color2);
+    }
+
+    33% {
+        box-shadow: 5px 10px 40px -25px var(--color1);
+    }
+
+    77% {
+        box-shadow: -10px -5px 40px -25px var(--color3);
+    }
+
+    100% {
+        box-shadow: 10px 5px 40px -25px var(--color2);
+    }
+}
+
+.playlistMenuLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+}
+
+.link {
+    display: flex;
+    gap: 5px;
+    transition: all var(--animationSpeed);
+    cursor: pointer;
+}
+
+.link:hover {
+    color: var(--color1);
+    text-shadow: 0 0 10px var(--color1);
+}
+
+.trackListContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.trackList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 40px;
+    transition: all var(--animationSpeed);
+    gap: 15px;
+}
+
+.track img,
+.track span {
+    transition: all var(--animationSpeed);
+}
+
+.track:hover {
+    border-radius: 5px;
+    box-shadow: inset 0 0 55px -40px var(--color2);
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.track:hover img {
+    box-shadow: 0 0 10px -2px var(--color2);
+}
+
+.track:hover span {
+    text-shadow: 0 0 10px var(--color2);
+    color: var(--color2);
+}
+
+.track:hover>.trackListButton {
+    opacity: 1;
+}
+
+.trackInfo {
+    transition: color var(--animationSpeed);
+    flex-grow: 1;
+}
+
+.trackListImage {
+    border-radius: 4%;
+}
+
+.trackListButton {
+    color: white;
+    font-size: 26px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-in-out, text-shadow var(--animationSpeed), color var(--animationSpeed);
+    cursor: pointer;
+}
+
+.trackListButton:hover {
+    text-shadow: 0 0 10px var(--color2);
+    color: var(--color2);
+}
+
+.ownedTitle {
+    display: flex;
+    font-size: 33px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    height: 100px;
+}
+
+.ownedContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+
+/* идентично с track*/
+.playlist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 40px;
+    transition: all var(--animationSpeed);
+    gap: 10px;
+}
+
+.playlist img,
+.playlist span {
+    transition: all var(--animationSpeed);
+}
+
+.playlist:hover {
+    border-radius: 5px;
+    box-shadow: inset 0 0 55px -40px var(--color1);
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.playlist:hover img {
+    box-shadow: 0 0 10px -2px var(--color1);
+}
+
+.playlist:hover span {
+    text-shadow: 0 0 10px var(--color1);
+    color: var(--color1);
+}
+
+.playlist:hover>.playlistListButton {
+    opacity: 1;
+}
+
+.playlistInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    transition-property: all;
+    transition: color var(--animationSpeed);
+    flex-grow: 1;
+}
+
+.playlistListImage {
+    border-radius: 4%;
+}
+
+.playlistListButton {
+    color: white;
+    font-size: 26px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-in-out, text-shadow var(--animationSpeed), color var(--animationSpeed);
+    cursor: pointer;
+}
+
+.playlistListButton:hover {
+    text-shadow: 0 0 10px var(--color1);
+    color: var(--color1);
+}
+
+.playlistList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.searchResultContainer {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
+}
+
+.searchInput {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.searchSubmit {
+    position: absolute;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--animationSpeed);
+}
+
+.searchSubmit:hover {
+    text-shadow: 0 0 10px var(--color3);
+    color: var(--color3);
+}
+
+.studioContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.authorInfoContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding: 40px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.authorImg {
+    height: 100px !important;
+    width: 100px !important;
+    border-radius: 3px;
+}
+
+.studioSpanAndLink {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.studioBtn {
+    width: 150px;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.studioBtn:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.studioBtn:active {
+    background-color: rgb(211, 211, 211);
+}

@@ -1,0 +1,10 @@
+@model string
+
+@{
+    Layout = "";
+}
+
+<script>
+    window.opener.loadPage('@Model',window.opener.updateLayoutPlaylists);
+    window.close();
+</script>

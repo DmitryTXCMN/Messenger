@@ -1,0 +1,95 @@
+
+.player {
+    position: absolute;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 300px 320px 1fr 300px;
+    height: var(--playerHeight);
+    width: 100%;
+    background-color: #0f0f0ff0;
+    bottom: 0px;
+}
+
+.controls {
+    justify-self: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 34px;
+}
+
+.playlist {
+    font-size: 28px;
+}
+
+.trackInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.trackLogo {
+    border-radius: 5%;
+    height: 55px;
+    width: 55px;
+}
+
+.trackSpans {
+    height: 100%;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    color: white;
+}
+
+.button {
+    transition: color var(--animationSpeed),  text-shadow var(--animationSpeed);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button:hover {
+    text-shadow: 0 0 10px var(--color3);
+    color: var(--color3);
+}
+
+.progressContainer {
+    cursor: pointer;
+    padding: 10px 0;
+    background-color: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 1000px;
+}
+
+.progressBackground {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+}
+
+.progress {
+    background-color: var(--color3);
+    height: 100%;
+    border-radius: 1000px;
+}
+
+.rightButtons {
+    justify-self: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 28px;
+}
+
+.volume {
+    font-size: 28px;
+}

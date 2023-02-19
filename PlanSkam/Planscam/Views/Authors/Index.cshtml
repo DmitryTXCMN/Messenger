@@ -1,0 +1,23 @@
+@using Planscam.Extensions
+@model Planscam.Models.AuthorPageViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "_Layout";
+}
+
+@Html.DisplayForModel()
+@Html.DrawUserAvatar(Model.Picture)
+
+<h1>Recent releases</h1>
+@foreach (var track in Model.RecentReleases.Tracks!)
+{
+    @await Html.PartialAsync("TrackInList", new TrackViewModel
+    {Picture = track.Picture, Name = track.Name, Id = track.Id, IsLiked = track.IsLiked, PlaylistId = null})
+}
+
+<h1>Albums</h1>
+@foreach (var album in Model.Albums)
+{
+    @await Html.PartialAsync("PlaylistInList", album)
+}

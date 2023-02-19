@@ -1,0 +1,12 @@
+@model System.Collections.Generic.List<Planscam.Entities.Playlist>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@Html.DisplayForModel()
+@foreach (var playlist in Model)
+{
+    @(await Html.PartialAsync("PlaylistInList", playlist))
+}

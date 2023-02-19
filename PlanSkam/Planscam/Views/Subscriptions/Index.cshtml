@@ -1,0 +1,11 @@
+@model System.Collections.Generic.List<Planscam.Entities.Subscription>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "";
+}
+
+@foreach (var sub in Model)
+{
+    @Html.DisplayFor(_ => sub)
+}

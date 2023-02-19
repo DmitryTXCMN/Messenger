@@ -1,0 +1,74 @@
+@using Planscam.Extensions
+@model UserViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "";
+}
+
+
+
+<div class="profile_block">
+    <div class="container">
+        <div class="profile_information">
+            
+            <div class="profile_name_block">
+                <div class="profile_name_label"><p>Name</p></div>
+                <div class="profile_name"><p>@Model.Name</p></div>
+            </div>
+            <div class="profile_email_block">
+                <div class="profile_email_label"><p>Email</p></div>
+                <div class="profile_email"><p>@Model.Email</p></div>
+            </div>
+            <div class="author_block">
+                <div class="author_label"><p>IsAuthor</p></div>
+                <div class="author_checkbox"><input type="checkbox"></div>
+            </div>
+        </div>
+        <div class="profile_img">@Html.DrawUserAvatar(Model.Picture)</div>
+        
+    </div>
+    <div class="profile_edit_block">
+        <div class="studioBtn" onclick="{
+                                                        var winForm = window.open(`${window.location.origin}/Profile/Edit`,'','scrollbars=1');
+                                                        winForm.resizeTo(500,450);
+                                                    }">
+            Edit
+                    </div>
+        </div>
+</div>
+
+<style>
+    .container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    font-size: 28px;
+    margin: 50px;
+    }
+    
+    .author_block, .profile_email_block, .profile_name_block {
+    display: flex;
+    }
+    .profile_information {
+    margin-right: 30px;
+    width: 50%;
+    }
+    .author_label, .profile_email_label, .profile_name_label {
+    margin-right: 20px;
+    }
+    .profile_img{
+    width: 50%;!important;
+    }
+    
+    .profile_img img {
+    width: 260px !important;
+    height: 260px !important;
+    }
+    .author_checkbox {
+    padding: 25px 0;;
+    }
+    .profile_edit_block{
+    margin-left: 50px;
+    }
+</style>

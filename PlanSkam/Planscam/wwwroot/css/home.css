@@ -1,0 +1,188 @@
+.mainPage {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.popularPlaylists {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    gap: 30px;
+}
+
+.mainSpan {
+    padding: 20px 0 0 20px;
+}
+
+.popularPlaylistsListContainer {
+    position: relative;
+    height: 275px;
+    width: 100%;
+}
+
+.popularPlaylistsList {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.popularPlaylist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-tracks: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.popularPlaylistSpan {
+    width: 200px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+}
+
+.popularPlaylistContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 5px;
+}
+
+.popularPlaylistImg {
+    position: absolute;
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: 5px;
+}
+
+.popularPlaylistBtns {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all var(--animationSpeed);
+}
+
+.popularPlaylistBtns:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 30px 10px rgba(133, 104, 0, 0.2);
+}
+
+.popularPlaylistBtns:hover > .popularPlaylistBtn {
+    opacity: 1;
+}
+
+.popularPlaylistBtn {
+    cursor: pointer;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    transition: all var(--animationSpeed);
+}
+
+.popularPlaylistBtn:hover {
+    color: var(--color1);
+    text-shadow: 0 0 10px var(--color1);
+}
+
+.popularTracks {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: 500;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.subscriptionsContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: 500;
+    gap: 30px;
+    width: 100%;
+    height: 230px;
+}
+
+.subscriptions {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 220px;
+    border-radius: 3px;
+    border-top: 1px solid var(--color3);
+}
+
+.subscriptionInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 100%;
+    padding: 10px;
+    flex-direction: column;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.subscribeBtnContainer {
+    display: flex;
+    padding: 4px 10px;
+    border-top: 1px solid var(--color3);
+}
+
+.subscribeBtn {
+    width: 200px;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.subscribeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.subscribeBtn:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}

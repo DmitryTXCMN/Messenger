@@ -1,0 +1,28 @@
+
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet publish -c Release --no-restore
+    - name: FTP deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: planscam.somee.com
+        username: erererererer123
+        password: ${{ secrets.ftp_password }}
+        server-dir: /www.planscam.somee.com/
+        local-dir: /home/runner/work/PlanSkam/PlanSkam/Planscam/bin/Release/net6.0/publish/

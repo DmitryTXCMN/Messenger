@@ -1,0 +1,54 @@
+@using Planscam.Extensions
+@model TrackIndexViewModel
+
+@{
+    Layout = "";
+}
+
+<div class="studioContainer">
+    <div class="authorInfoContainer">
+        @Html.DrawUserAvatar(Model.Track.Picture,"authorImg")
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <span>
+                @Model.Track.Name
+            </span>
+            <span>
+                @Model.Track.Author.Name
+            </span>
+        </div>
+        @if (Model.Track.IsLiked == true)
+        {
+            <i onclick="addTrackToFavourite('@Model.Track.Id')" style="opacity: 1;" id="trackFavBtn@(Model.Track.Id)"
+            class="trackListButton fi fi-sr-heart"></i>
+        }
+        else
+        {
+            <i onclick="addTrackToFavourite('@Model.Track.Id')" style="opacity: 1;" id="trackFavBtn@(Model.Track.Id)"
+            class="trackListButton fi fi-rr-heart"></i>
+        }
+    </div>
+
+    @if (Model.NotAddedPlaylists.Count != 0)
+    {
+        <div class="line glowing2 bcolor1" style="align-self: center">⠀</div>
+        <div class="studioSpanAndLink">
+            Add to playlist
+        </div>
+        <div id="studioTracklistContainer" class="trackListContainer">
+            <div class="playlistList">
+                @foreach (var playlist in Model.NotAddedPlaylists)
+                {
+                    <div id="playlist@(playlist.Id)" class="playlist">
+                        <div class="playlistInfo" onclick="loadPage('@($"Playlists/Index/{playlist.Id}')")"
+                    style="cursor: pointer;">
+                            @Html.DrawSmallPlaylistPic(playlist.Picture, "playlistListImage")
+                            <span style="font-weight: 600; font-size: 18px;">@playlist.Name</span>
+                        </div>
+                        <i onclick="addTrackToPlaylistIndex(@playlist.Id,@Model.Track.Id)"
+                    class="playlistListButton fi fi-rr-plus"></i>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

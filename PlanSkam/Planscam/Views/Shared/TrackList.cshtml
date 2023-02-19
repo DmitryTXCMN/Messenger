@@ -1,0 +1,36 @@
+@using Planscam.Extensions
+@model Planscam.Entities.Playlist
+
+@{
+    Layout = "";
+}
+
+<div class="trackList">
+    @foreach (var track in Model.Tracks)
+    {
+        <div id="track@(track.Id)" class="track">
+            <div class="trackInfo" onclick="loadPage('@($"/Tracks/Index/{track.Id}')")" style="cursor: pointer;">
+                @Html.DrawSmallPlaylistPic(@track.Picture, "trackListImage")
+                <div class="trackSpans">
+                    <span style="font-weight: 600; font-size: 18px;">@track.Author.Name</span>
+                    <span style="font-weight: 300; font-size: 15px;">@track.Name</span>
+                </div>
+            </div>
+            @if (Model.IsOwned == true)
+            {
+                <i onclick="removeTrackFromPlaylist(@Model.Id,@track.Id)" class="trackListButton fi fi-rr-cross" style="font-size: 20px; width: 26px"></i>
+            }
+            @if (track.IsLiked == true)
+            {
+                <i onclick="addTrackToFavourite('@track.Id')" id="trackFavBtn@(track.Id)"
+            class="trackListButton fi fi-sr-heart"></i>
+            }
+            else
+            {
+                <i onclick="addTrackToFavourite('@track.Id')" id="trackFavBtn@(track.Id)"
+            class="trackListButton fi fi-rr-heart"></i>
+            }
+            <i onclick="playTrackFromPlaylist(@Model.Id,@track.Id)" class="trackListButton fi fi-rr-play"></i>
+        </div>
+    }
+</div>

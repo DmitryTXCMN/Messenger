@@ -1,0 +1,31 @@
+@using Planscam.Extensions
+@model TrackViewModel
+
+<div>
+    <button onclick="GetPlaylistData()">
+        @Html.DrawSmallTrackPic(Model.Picture)
+    </button>
+    <script>
+        async function GetPlaylistData(){
+            let Аt = await (await fetch('https://localhost:7256/Playlists/GetData?id=@Model.PlaylistId')).json();
+            alert(t.id);
+            
+        }
+    </script>
+    @Html.DisplayForModel()
+    @if (Model.IsLiked is { } isLiked)
+    {
+        @using (isLiked
+            ? Html.BeginForm("RemoveTrackFromFavourite", "Tracks", FormMethod.Post)
+            : Html.BeginForm("AddTrackToFavourite", "Tracks", FormMethod.Post))
+        {
+            <input name="Id" type="hidden" value="@Model.Id.ToString()">
+            var returnUrl = Context.GetCurrentUrl();
+            @Html.HiddenFor(_ => returnUrl)
+
+            //TODO вместо формы сделать кнопку которая по ajax попытается добавить трек и покажет результат
+            <input type="submit" value="@(Model.IsLiked.Value ? "-" : "+")"/>
+        }
+    }
+    @Html.ActionLink("open", "Index", "Tracks", new {Model.Id})
+</div>

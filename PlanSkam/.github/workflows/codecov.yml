@@ -1,0 +1,15 @@
+name: codecov
+
+on: [push]
+
+jobs:
+  codecov:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.0
+      with:
+        file: ./api_coverage.xml

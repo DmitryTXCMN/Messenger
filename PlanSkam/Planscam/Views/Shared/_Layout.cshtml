@@ -1,0 +1,125 @@
+﻿@using Planscam.Extensions
+@using Planscam.FsServices
+@using Planscam.Entities
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var authenticated = User.Identity?.IsAuthenticated ?? false;
+}
+@inject PlaylistsRepo PlaylistsRepo
+@inject UserManager<User> UserManager;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mansur and 1 father who went for bread 19 years ago</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="~/css/form.css" rel="stylesheet">
+    <link href="~/css/layout.css" rel="stylesheet">
+    <link href="~/css/playlist.css" rel="stylesheet">
+    <link href="~/css/home.css" rel="stylesheet">
+    <script src="~/jsFiles/search.js"></script>
+    <script src="~/jsFiles/custom-select.js"></script>
+    <script src="~/jsFiles/form.js"></script>
+    <script src="~/jsFiles/inputs.js"></script>
+    <script src="~/jsFiles/playlist.js"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="body">
+        <div class="layoutGrid">
+            <a href="https://music.yandex.ru" style="position: absolute; top: 10px; right: 30px; background-color: aqua; z-index: 1">CLICK HERE</a>
+            <div class="menu">
+                <div class="logo">
+                    <img style="border-radius: 50%;" src="~/img/logo.png" alt="logo" width="35px" height="35px">
+                    <span class="logospan color2 textglow2">PLANSCAM</span>
+                </div>
+                <div class="line glowing2 bcolor2" style="margin-bottom: 15px;">⠀</div>
+                <a class="menuElement" style="cursor: pointer;" asp-controller="Home" asp-action="Index">
+                    <i class="fi fi-rr-home"></i>
+                    Home
+                </a>
+                @if (authenticated && await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Sub"))
+                {
+                    <div class="menuElement" style="cursor: pointer;" onclick="loadPage('Tracks/Search', form)">
+                        <i class="fi fi-rr-search"></i>
+                        Search
+                    </div>
+                }
+                @if (authenticated)
+                {
+                    <div class="menuElement" onclick="loadPage('Playlists/Owned')">
+                        <i class="fi fi-rr-indent"></i>
+                        My libary
+                    </div>
+                    <div class="line glowing2 bcolor2" style="margin: 15px 0;">⠀</div>
+                    @if (await UserManager.IsInRoleAsync(await UserManager.FindByIdAsync(UserManager.GetUserId(User)),
+                   "Author"))
+                    {
+                        <div class="menuElement" onclick="loadPage('Studio/Index')">
+                            <i class="fi fi-rr-plus"></i>
+                            Studio
+                        </div>
+                    }
+                    <div class="menuElement" onclick="{
+                                                        var winForm = window.open(`${window.location.origin}/Playlists/Create`,'','scrollbars=1');
+                                                        winForm.resizeTo(500,450);
+                                                    }">
+                        <i class="fi fi-rr-plus"></i>
+                        Create Playlist
+                    </div>
+                }
+                <div class="line glowing2 bcolor1" style="margin: 15px 0;">⠀</div>
+
+                @if (authenticated)
+                {
+                    <div class="menuElement" onclick="loadPage('Profile/Index')">
+                        <i class="fi fi-rr-user"></i>
+                        Profile
+                    </div>
+                    <a class="menuElement" style="cursor: pointer;" asp-controller="Auth" asp-action="Logoff">
+                        <i class="fi fi-rr-user"></i>
+                        Logoff
+                    </a>
+                    <span class="headline">
+                        Favourite Playlists
+                    </span>
+                    <div id="layoutPlaylistsContainer" class="menuPlaylistsContainer">
+                        @await Html.PartialAsync("~/Views/Playlists/LayoutPlaylists.cshtml", await PlaylistsRepo.GetLikedPlaylists(User))
+                    </div>
+                }
+                else
+                {
+                    <a class="menuElement" style="cursor: pointer;" asp-controller="Auth" asp-action="Login">
+                        <i class="fi fi-rr-user"></i>
+                        Login
+                    </a>
+                }
+
+            </div>
+            <div class="pageContainer">
+                <div id="page" class="page">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <div class="playerContainer">
+            @await Html.PartialAsync("Player.cshtml")
+        </div>
+    </div>
+</body>
+@await RenderSectionAsync("Scripts", required: false)
+<script src="~/jsFiles/navigator.js"></script>
+
+</html>

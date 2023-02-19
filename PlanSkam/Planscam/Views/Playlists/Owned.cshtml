@@ -1,0 +1,28 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Planscam.Extensions
+@model Planscam.Models.OwnedPlaylistsViewModel
+
+@{
+    Layout = "";
+}
+<div class="playlistContainer">
+    <div class="ownedContainer">
+        <span class="ownedTitle">
+            Your playlists
+        </span>
+        <div class="trackListContainer">
+            @await Html.PartialAsync("PlaylistList", Model.OwnedPlaylists)
+        </div>
+    </div>
+
+    <div class="lineVertical glowing1 bcolor1" style="height: 100%;">⠀</div>
+
+    <div class="ownedContainer">
+        <span class="ownedTitle">
+            Favourite tracks
+        </span>
+        <div class="trackListContainer">
+            @await Html.PartialAsync("TrackList", Model.FavouriteTracks)
+        </div>
+    </div>
+</div>

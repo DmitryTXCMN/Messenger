@@ -1,0 +1,23 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Planscam.Extensions
+
+@{
+    Layout = "";
+}
+<div class="searchContainer">
+    <div class="searchInput">
+        <div class="editor-label">
+            <label for="searchInput" style="display: flex;">Name</label>
+        </div>
+        <div class="editor-field1" style="padding: 0;">
+            <input class="text-box single-line" onsubmit="alert(1)" id="searchInput" name="Name" type="text" value="" style="width: auto; padding-right: 22px;">
+            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true">
+            </span>
+        </div>
+        <i onclick="search()" class="searchSubmit fi fi-rr-search"></i>
+    </div>
+
+    <div id ="searchReslutContainer" class="searchResultContainer">
+        
+    </div>
+</div>

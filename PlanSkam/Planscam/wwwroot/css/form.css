@@ -1,0 +1,281 @@
+.formWindowContainer {
+    position: absolute;
+    background-color: #1f1f1ff0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formWindow {
+    padding: 30px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 18px;
+    width: 100%;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 320px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.editor-label label {
+    position: absolute;
+    color: white;
+    font-weight: 200;
+    margin-left: 3px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor-field span {
+    color: red;
+    font-weight: 200;
+    margin-left: 3px;
+    font-size: 12px;
+}
+
+.editor-field {
+    display: flex;
+    width: 100%;
+    padding-bottom: 25px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.editor-field input[type="text"], .editor-field input[type="password"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 200;
+    font-size: 18px;
+    color: white;
+    width: 100%;
+    height: 22px;
+    background-color:transparent;
+    border: none;
+    border-bottom: 1px solid var(--color2) ;
+    outline: none   ;
+}
+
+.editor-field input[type="text"]:hover, .editor-field input[type="password"]:hover,
+.editor-field input[type="text"]:focus, .editor-field input[type="password"]:focus {
+    border-bottom: 1px solid var(--color3) ;
+}
+
+.editor-field input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    align-self: center;
+}
+
+.editor-field1 span {
+    color: red;
+    font-weight: 200;
+    margin-left: 3px;
+    font-size: 12px;
+}
+
+.editor-field1 {
+    display: flex;
+    width: 100%;
+    padding-bottom: 25px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.editor-field1 input[type="text"], .editor-field1 input[type="password"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 200;
+    font-size: 18px;
+    color: white;
+    width: 100%;
+    height: 22px;
+    background-color:transparent;
+    border: none;
+    border-bottom: 1px solid var(--color3) ;
+    outline: none   ;
+}
+
+.editor-field1 input[type="text"]:hover, .editor-field1 input[type="password"]:hover,
+.editor-field1 input[type="text"]:focus, .editor-field1 input[type="password"]:focus {
+    border-bottom: 1px solid var(--color2) ;
+}
+
+.editor-field1 input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    align-self: center;
+}
+
+.form input[type="submit"], .formWindow input[type="submit"] {
+    margin-top: 15px;
+    width: 100%;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.form input[type="submit"]:hover, .formWindow input[type="submit"]:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.form input[type="submit"]:active, .formWindow input[type="submit"]:active {
+    background-color: rgb(211, 211, 211);
+}
+
+.form input[type="reset"], .formWindow input[type="reset"] {
+    margin-top: 15px;
+    width: 100%;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.form input[type="reset"]:hover, .formWindow input[type="reset"]:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.form input[type="reset"]:active, .formWindow input[type="reset"]:active {
+    background-color: rgb(211, 211, 211);
+}
+
+
+.validation-summary-errors {
+    color: red;
+}
+
+.validation-summary-errors ul {
+    margin: 0;
+}
+
+.check-box {
+    border: none!important;
+    background-color: antiquewhite!important;
+    outline: none!important;
+}
+
+.authLink {
+    color: white;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.fileInput {
+    color: blue;
+    background-color: black;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.inputLabel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color3);
+    gap: 10px;
+}
+
+.fileInputContainer:hover>.inputLabel {
+    background-color: #5000e4;
+}
+
+.fileInputContainer {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+  }
+  
+  .custom-select select {
+    display: none;
+  }
+  
+  .select-selected {
+    background-color: var(--color3);
+  }
+  
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }

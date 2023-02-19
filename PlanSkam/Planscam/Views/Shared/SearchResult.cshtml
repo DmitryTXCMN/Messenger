@@ -1,0 +1,38 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Planscam.Extensions
+@model Planscam.Models.SearchAllViewModel
+
+@{
+    Layout = "";
+}
+
+<div class="ownedContainer">
+    <span class="ownedTitle">
+        Playlists
+    </span>
+    <div class="trackListContainer">
+        @await Html.PartialAsync("PlaylistList.cshtml", Model.Playlists)
+    </div>
+</div>
+
+<div class="lineVertical glowing1 bcolor1" style="height: 100%;">⠀</div>
+
+<div class="ownedContainer">
+    <span class="ownedTitle">
+        Tracks
+    </span>
+    <div class="trackListContainer">
+        @await Html.PartialAsync("TrackList.cshtml", Model.Tracks)
+    </div>
+</div>
+
+<div class="lineVertical glowing1 bcolor1" style="height: 100%;">⠀</div>
+
+<div class="ownedContainer">
+    <span class="ownedTitle">
+        Authors
+    </span>
+    <div class="trackListContainer">
+        @await Html.PartialAsync("AuthorList.cshtml", Model.Authors)
+    </div>
+</div>

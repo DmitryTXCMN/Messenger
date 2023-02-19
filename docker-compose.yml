@@ -1,0 +1,28 @@
+services:
+    db:
+        image: mcr.microsoft.com/mssql/server
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Kamil1ove
+        ports:
+            - 1431:1433
+        networks:
+            default:
+    
+    planscam:
+        build:
+            context: ./PlanSkam/Planscam
+        ports:
+            - 5256:5256
+        volumes:
+            - './PlanSkam/Planscam/:/app/'
+            - './PlanSkam/Planscam.DataAccess:/Planscam.DataAccess/'
+            - './PlanSkam/Planscam.Entities:/Planscam.Entities/'
+            - './PlanSkam/Planscam.Services:/Planscam.Services/'
+            - './PlanSkam/Planscam.FsServices:/Planscam.FsServices/'
+        depends_on:
+            - db
+        networks:
+            default:
+        external_links:
+            - db:db

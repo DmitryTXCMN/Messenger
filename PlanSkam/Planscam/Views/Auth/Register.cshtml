@@ -1,0 +1,14 @@
+@model RegisterViewModel
+
+@{
+    ViewBag.Title = "Sign up";
+    Layout = "_FormLayout";
+}
+
+<div class="headline">Sign Up</div>
+<form class="form" method="post" asp-controller="Auth" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    @Html.EditorForModel()
+    <input type="submit" value="Sign up" />
+</form>
+<a class="authLink" asp-controller="Auth" asp-action="Login">Already have an account?</a>
